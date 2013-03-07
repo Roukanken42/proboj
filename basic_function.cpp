@@ -30,7 +30,7 @@ template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
 vector<vector<vector<vector<int>>>> bfsdatamem;
 
 vector<vector<int>>& bfsmem (Bod a){
-    bfs(bfsdatamem[a.x][a.y], a);
+    if (a.get(bfsdatamem).size() == 0) bfs(bfsdatamem[a.x][a.y], a);
     return a.get(bfsdatamem);
 }
 
