@@ -30,6 +30,8 @@ Tah mojTah;
 vector<Bod> d_cka= {{-1,0},{-1,1},{-1,-1},{0,1},{0,-1},{1,0},{1,1},{1,-1}};
 
 
+
+
 void inicializuj() {
     debug_init();
 
@@ -40,6 +42,9 @@ void inicializuj() {
 
     unddf();
 }
+
+
+
 
 void zistiTah() {
 
