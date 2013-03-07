@@ -25,7 +25,7 @@ struct Action {
     }
 
     Prikaz get_command () {
-
+        return Prikaz::chod (actor.id, actor.x, actor.y);
     };
 
     Action (Zivocich actor) {
@@ -39,18 +39,27 @@ struct Action {
 
 };
 
-struct CollectItems: public Action {
+struct CollectItemsOnGround: public Action {
     Quest targetQuest;
+    vector <vector<int> > bfsdata;
+
 
     void QuestSelect(){
         if (!QuestExist(targetQuest)){
+            for(Quest quest: stav.questy){
+                for (Quest_spec item: get_Quest_spec(quest)){
 
+                }
+            }
         }
     }
 
     Prikaz get_command(){
-        QuestSelect ();
+        vector<vector<int>> bfsdata;
+        bfs(bfsdata, Bod(actor));
 
+        QuestSelect ();
+        if ()
     }
 };
 

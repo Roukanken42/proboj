@@ -27,8 +27,18 @@ bool QuestExist(Quest);
 
 template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
 
+vector<vector<vector<vector<int>>>> bfsdatamem;
+
+vector<vector<int>>& bfsmem (Bod a){
+    bfs(bfsdatamem[a.x][a.y], a);
+    return a.get(bfsdatamem);
+}
+
+
+
 
 void bfs(vector<vector<int> > &nazov, Bod bod) {
+
 
     nazov.clear();
     nazov.resize(mapa.w,vector<int> (mapa.h,100908));
