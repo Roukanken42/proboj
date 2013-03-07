@@ -39,27 +39,32 @@ struct Action {
 
 };
 
-struct CollectItemsOnGround: public Action {
+struct CollectItems: public Action {
     Quest targetQuest;
+
     vector <vector<int> > bfsdata;
 
 
     void QuestSelect(){
         if (!QuestExist(targetQuest)){
-            for(Quest quest: stav.questy){
-                for (Quest_spec item: get_Quest_spec(quest)){
+            vector <pair <Quest, Quest_spec>> data;
 
-                }
+            for(Quest quest: stav.questy){
+                Quest_spec target_item = getBestItem(quest);
+                if (target_item.item_owner != -1) data.push_back(make_pair(quest, target_item));
+            }
+
+            for (auto x: data){
+
+
             }
         }
     }
 
     Prikaz get_command(){
-        vector<vector<int>> bfsdata;
-        bfs(bfsdata, Bod(actor));
+        bfsdata = bfsmem(Bod(actor));
 
         QuestSelect ();
-        if ()
     }
 };
 

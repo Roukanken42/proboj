@@ -33,9 +33,31 @@ template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
 vector<vector<vector<vector<int>>>> bfsdatamem;
 
 vector<vector<int>>& bfsmem (Bod a){
-    bfs(bfsdatamem[a.x][a.y], a);
+    if (a.get(bfsdatamem).size() == 0) bfs(bfsdatamem[a.x][a.y], a);
     return a.get(bfsdatamem);
 }
+
+
+Quest_spec getBestItem (Quest quest){
+    int vzdial = 100908;
+
+    Quest_spec target_item;
+
+    for (Quest_spec item: get_Quest_spec(quest)){
+        if (!((item.item_owner == 0) || ((item.item_owner == 1)))) continue;
+
+        int v = item.vzdialenost_k_mestu + item.poz.get(bfsdata);
+        if (v < vzdial) {
+            vzdial = v;
+            target_item = item;
+        }
+    }
+
+    if (vzdial > 100000) target_item.item_owner = -1;
+    return target_item;
+}
+
+
 
 void bfs(vector<vector<int> > &nazov, Bod bod) {
 
