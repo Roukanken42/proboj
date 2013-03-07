@@ -8,6 +8,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 using namespace std;
 
@@ -65,6 +66,8 @@ int main() {
     inicializuj();
 
     while (cin.good()) {
+        random_shuffle(d_cka.begin(), d_cka.end());
+
         nacitaj(cin, stav);
         mojTah = zaciatokTahu(stav, ja);
         zistiTah();

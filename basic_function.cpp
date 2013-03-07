@@ -41,12 +41,13 @@ Quest_spec getBestItem (Quest quest){
     Quest_spec target_item;
 
     for (Quest_spec item: get_Quest_spec(quest)){
-        if (!((item.item_owner == 0) || ((item.item_owner == 1)))) continue;
+        if (!((item.item_owner == 0) || ((item.item_owner == 0)))) continue;
 
         int v = item.vzdialenost_k_mestu + item.poz.get(bfsdata);
         if (v < vzdial) {
             vzdial = v;
             target_item = item;
+            target_item.vzdialenost_k_mestu = v;
         }
     }
 
