@@ -148,7 +148,16 @@ vector<Quest_spec> get_Quest_spec(Quest q){
     bool found = false;
     for(auto na_zemi: stav.predmety){
         if( na_zemi.typ == q.ziadanyPredmet){
-                pole.push_back( Quest_spec(0, Bod(), Bod(na_zemi).get(vzdialenostOdMiest[vratCislomesta(Bod(q.cielX, q.cielY))])) );
+                pole.push_back( Quest_spec(0, Bod(na_zemi), Bod(na_zemi).get(vzdialenostOdMiest[vratCislomesta(Bod(q.cielX, q.cielY))])) );
+                found = true;
+        }
+
+    }
+
+    for(auto drzany: stav.zivocichy){
+        if( drzany.nesenyPredmet == q.ziadanyPredmet){
+                pole.push_back( Quest_spec((drzany.ktorehoHraca == -1)?1:2, Bod(drzany) , Bod(drzany).get(vzdialenostOdMiest[vratCislomesta(Bod(q.cielX, q.cielY))])) );
+                found = true;
         }
 
     }
