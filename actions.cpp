@@ -7,6 +7,7 @@ int ACTION_ID = 0;
 extern int ja;   // ktory hrac som
 extern Mapa mapa;
 
+extern Tah tah;
 extern Stav stav;
 extern Tah mojTah;
 
@@ -21,8 +22,8 @@ struct Action {
     }
 
     int get_ap (){
-        int NOT_IMPLEMENTED = -1;
-        return NOT_IMPLEMENTED;
+
+        return zistiApCenu(mapa,stav,tah,);
     }
 
     Prikaz get_command () {
@@ -96,6 +97,7 @@ struct CollectItems: public Action {
 
         return Prikaz::chod(actor.id, next.x, next.y);
     }
+
 };
 
 
