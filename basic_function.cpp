@@ -5,7 +5,8 @@
 
 extern int ja;   // ktory hrac som
 extern Mapa mapa;
-
+extern vector<int> myHeroes;
+extern Tah tah;
 extern Stav stav;
 extern Tah mojTah;
 extern vector<Bod> d_cka;
@@ -26,7 +27,7 @@ vector<Quest_spec> get_Quest_spec(Quest);
 bool QuestExist(Quest);
 int verbovanie(int typ=HRDINA_LUMP);
 int countHeroes (int hrac=ja, int typ=-1);
-
+void aktualizujMojichHrdinov();
 
 template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
 
@@ -220,6 +221,7 @@ int verbovanie(int typ){
         int r = rand() % mesta.size();
         if (vykonaj(Prikaz::verbuj(typ, mesta[r].x, mesta[r].y))) {
             return 1;
+            else return 3;
         }
     }
 
@@ -265,5 +267,13 @@ template <class T> int find_by_x_y (vector<T > &data, Bod b){
 
 }
 
+void aktualizujMojichHrdinov() {
+    for (int i=0; i<stav.zivocichy.size(); i++) {
+        if (stav.zivocichy[i].ktorehoHraca == ja) {
+            myHeroes.push_bach(stav.zivocichy[i].id);
+        }
+
+    }
+}
 
 
