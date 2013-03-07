@@ -12,6 +12,7 @@ void preratajVzdialenostOdMiest();
 Zivocich findLifeByID(int ID);
 int vratCislomesta(Bod m);
 Quest_spec get_Quest_spec(Quest);
+bool QuestExist(Quest);
 
 template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
 
@@ -120,14 +121,31 @@ int vratCislomesta(Bod m){
 }
 
 Quest_spec get_Quest_spec(Quest q){
+
     Quest_spec pom;
     bool found = false;
     for(auto na_zemi: stav.predmety){
-        s
+        if( na_zemi.typ == q.ziadanyPredmet){
+
+        }
 
     }
 
     return pom;
+}
+
+bool QuestExist(Quest q){
+
+    bool found=false;
+
+    for(auto pom_q: stav.questy){
+        if(q.ziadanyPredmet == pom_q.ziadanyPredmet && ( pom_q.cielX == q.cielX && pom_q.cielY == q.cielY  ) ){
+            found=true;
+        }
+    }
+
+    return found;
+
 }
 
 
