@@ -1,6 +1,13 @@
 #include "common.h"
-#define vykonaj(p) vykonajPrikaz(mapa, stav, mojTah, (p))
+#include "basic_function.cpp"
+
 int ACTION_ID = 0;
+
+extern int ja;   // ktory hrac som
+extern Mapa mapa;
+
+extern Stav stav;
+extern Tah mojTah;
 
 
 //basic action
@@ -35,9 +42,14 @@ struct Action {
 struct CollectItems: public Action {
     Quest targetQuest;
 
+    void QuestSelect(){
+        if (!QuestExist(targetQuest)){
 
+        }
+    }
 
     Prikaz get_command(){
+        QuestSelect ();
 
     }
 };

@@ -20,48 +20,6 @@ using namespace std;
 
 #define vykonaj(p) vykonajPrikaz(mapa, stav, mojTah, (p))
 
-struct Bod {
-    int x, y;
-
-    template <class T>
-    T& get (vector<vector<T>> &data);
-    int get (Mapa data);
-
-    Bod operator+ (Bod a) {
-        return Bod(this->x+a.x, this->y+a.y);
-    }
-
-    bool operator== (Bod a) {
-        return (a.x == this->x) && (a.y == this->y);
-    }
-
-    Bod (int x, int y) {
-        this->x = x;
-        this->y = y;
-    }
-
-    template <class T>
-    Bod (T data) {
-        this->x = data.x;
-        this->y = data.y;
-    }
-
-    Bod () {}    //Shut up Code::Blocks
-};
-
-template <class T>
-T& Bod::get (vector<vector<T>> &data) {
-    return data[x][y];
-}
-
-int Bod::get (Mapa data) {
-    return data.zisti(x, y);
-}
-
-
-
-
-
 
 int ja;   // ktory hrac som
 Mapa mapa;
@@ -86,7 +44,6 @@ void inicializuj() {
 
     unddf();
 }
-
 
 void zistiTah() {
 
