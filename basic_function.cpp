@@ -24,7 +24,7 @@ Zivocich findLifeByID(int ID);
 int vratCislomesta(Bod m);
 vector<Quest_spec> get_Quest_spec(Quest);
 bool QuestExist(Quest);
-int vebovanie(int typ=HRDINA_LUMP);
+int verbujem(int typ=HRDINA_LUMP);
 int countHeroes (int hrac=ja, int typ=-1);
 
 
@@ -223,7 +223,7 @@ int verbovanie(int typ){
     }
 
 
-    if (countHeroes() == 2) return=0;
+    if (countHeroes() == 2) return 0;
     else return 2;
 
 }
