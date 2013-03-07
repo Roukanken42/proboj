@@ -1,3 +1,6 @@
+
+#include "bod.cpp"
+
 #define For(q,w) for(int q=0; q<w; q++)
 
 vector<Bod> d_cka= {{-1,0},{-1,1},{-1,-1},{0,1},{0,-1},{1,0},{1,1},{1,-1}};

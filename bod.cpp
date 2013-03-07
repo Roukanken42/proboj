@@ -38,27 +38,24 @@ int Bod::get (Mapa data) {
 }
 
 struct Quest_spec{
-    vector<int> item_owner;  // -1- invalid, 0 - zem, 1- prisera, 2- hrac;
-    vector<Bod> poz;
-    vector<int> vzdialenost_k_mestu;
+    int item_owner;  // -1- invalid, 0 - zem, 1- prisera, 2- hrac;
+    Bod poz;
+    int vzdialenost_k_mestu;
 
     Quest_spec(int, Bod, int);
     Quest_spec();
-}
+};
 
 
 Quest_spec::Quest_spec(int a, Bod b, int c){
-    this->item_owner.resize(0);
-    this->poz.resize(0);
-    this->vzdialenost_k_mestu.resize(0);
 
-    this->item_owner.push_back(a);
-    this->poz.push_back(b);
-    this->vzdialenost_k_mestu.push_back(c);
+    this->item_owner=(a);
+    this->poz=(b);
+    this->vzdialenost_k_mestu=(c);
 }
 
 Quest_spec::Quest_spec (){
-    this->item_owner.resize(0);
-    this->poz.resize(0);
-    this->vzdialenost_k_mestu.resize(0);
+    this->item_owner=(0);
+    this->poz=(0);
+    this->vzdialenost_k_mestu=(0);
 }
