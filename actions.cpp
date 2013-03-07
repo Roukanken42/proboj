@@ -1,7 +1,6 @@
 #include "common.h"
 #include "basic_function.cpp"
 
-#define vykonaj(p) vykonajPrikaz(mapa, stav, mojTah, (p))
 
 int ACTION_ID = 0;
 
@@ -64,7 +63,7 @@ struct CollectItems: public Action {
             vector <pair <Quest, Quest_spec>> data;
 
             for(Quest quest: stav.questy){
-                Quest_spec target_item = getBestItem(quest);
+                Quest_spec target_item = getBestItem(quest, bfsdata);
                 if (target_item.item_owner != -1) data.push_back(make_pair(quest, target_item));
             }
 

@@ -2,6 +2,7 @@
 #include "bod.cpp"
 
 #define For(q,w) for(int q=0; q<w; q++)
+#define vykonaj(p) vykonajPrikaz(mapa, stav, mojTah, (p))
 
 extern int ja;   // ktory hrac som
 extern Mapa mapa;
@@ -39,7 +40,7 @@ vector<vector<int>>& bfsmem (Bod a){
 }
 
 
-Quest_spec getBestItem (Quest quest){
+Quest_spec getBestItem (Quest quest, vector<vector<int>> &bfsdata){
     int vzdial = 100908;
 
     Quest_spec target_item;
