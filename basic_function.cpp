@@ -3,18 +3,26 @@
 
 #define For(q,w) for(int q=0; q<w; q++)
 
-vector<Bod> d_cka= {{-1,0},{-1,1},{-1,-1},{0,1},{0,-1},{1,0},{1,1},{1,-1}};
+extern int ja;   // ktory hrac som
+extern Mapa mapa;
+
+extern Stav stav;
+extern Tah mojTah;
+extern vector<Bod> d_cka;
+
+
 vector<vector<vector<int> > > vzdialenostOdMiest;
 vector<Bod> mesta;
 
+void basic_function_setMap();
 void bfs(vector<vector<int> > &nazov, Bod bod);
 void bfs(vector<vector<int> > &nazov, Bod bod, vector <vector<int> > &beware);
 int sgn(int c);
 void inicializujZoznamMiest();
-void preratajVzdialenostOdMiest();
+void preratajVzdialenostOdMiest();    // zavolat!!!1
 Zivocich findLifeByID(int ID);
 int vratCislomesta(Bod m);
-Quest_spec get_Quest_spec(Quest);
+vector<Quest_spec> get_Quest_spec(Quest);
 bool QuestExist(Quest);
 
 template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
@@ -120,21 +128,22 @@ int vratCislomesta(Bod m){
         if(mesta[i]==m) return i;
 
     }
-
+    return -1;
 }
 
-Quest_spec get_Quest_spec(Quest q){
+vector<Quest_spec> get_Quest_spec(Quest q){
 
-    Quest_spec pom;
+    vector<Quest_spec> pole;
+
     bool found = false;
     for(auto na_zemi: stav.predmety){
         if( na_zemi.typ == q.ziadanyPredmet){
-
+                pole.push_back(0, Bod(), Bod(na_zemi).get(vzdialenostOdMiest[vratCislomesta(Bod(q.cielX, q.cielY))]) );
         }
 
     }
 
-    return pom;
+    return pole;
 }
 
 bool QuestExist(Quest q){
