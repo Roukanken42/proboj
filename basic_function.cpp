@@ -271,7 +271,7 @@ template <class T> int find_by_x_y (vector<T > &data, Bod b){
 void aktualizujMojichHrdinov() {
     for (int i=0; i<stav.zivocichy.size(); i++) {
         if (stav.zivocichy[i].ktorehoHraca == ja) {
-            myHeroes.push_bach(stav.zivocichy[i].id);
+            myHeroes.push_back(stav.zivocichy[i].id);
         }
 
     }
