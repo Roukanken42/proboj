@@ -11,3 +11,8 @@
 *.lai
 *.la
 *.a
+
+Makefile
+hrac
+*.tar.gz
+*.d
