@@ -24,7 +24,7 @@ Zivocich findLifeByID(int ID);
 int vratCislomesta(Bod m);
 vector<Quest_spec> get_Quest_spec(Quest);
 bool QuestExist(Quest);
-int verbujem(int typ=HRDINA_LUMP);
+int verbovanie(int typ=HRDINA_LUMP);
 int countHeroes (int hrac=ja, int typ=-1);
 
 
@@ -204,6 +204,7 @@ bool QuestExist(Quest q){
 
 int verbovanie(int typ){
 
+    bool verbujem=false;
     for (auto ponuka: stav.pracovnePonuky){
         if (ponuka.ktorehoHraca != ja || ponuka.typ != typ) continue;
         bool collision = false;
