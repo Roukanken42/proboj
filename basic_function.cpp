@@ -221,9 +221,9 @@ int verbovanie(int typ){
     if ((countHeroes() < 2) && (verbujem == false)) {
         int r = rand() % mesta.size();
         if (vykonaj(Prikaz::verbuj(typ, mesta[r].x, mesta[r].y))) {
-            return 1;
+            return 1;}
             else return 3;
-        }
+
     }
 
 
