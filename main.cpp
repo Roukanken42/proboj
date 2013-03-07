@@ -28,7 +28,13 @@ Mapa mapa;
 Stav stav;
 Tah mojTah;
 vector<Bod> d_cka= {{-1,0},{-1,1},{-1,-1},{0,1},{0,-1},{1,0},{1,1},{1,-1}};
+vector <int> myHeroes;
 
+vector <Action*> akcie;
+
+void actualize (){
+
+}
 
 
 
@@ -43,19 +49,24 @@ void inicializuj() {
     unddf();
 }
 
-
-
+bool verbujem = false;
 
 void zistiTah() {
+    aktualizujMojichHrdinov();
 
     setdf("Clock");
     ss << stav.cas;
     debug();
 
-    setdf ("Actualize");
+    if (verbovanie() == 1){
+        verbujem = true;
+    }
 
-    debug ("started");
-    debug("finished");
+    if (countHeroes() == 0) return;
+    if (verbujem) {
+
+
+    }
 }
 
 
