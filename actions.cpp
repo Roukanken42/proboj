@@ -50,21 +50,8 @@ struct CollectItems: public Action {
             vector <pair <Quest, Quest_spec>> data;
 
             for(Quest quest: stav.questy){
-
-                int vzdial = 100908;
-                Quest_spec target_item;
-
-                                for (Quest_spec item: get_Quest_spec(quest)){
-                    if (!((item.item_owner == 0) || ((item.item_owner == 1)))) continue;
-
-                    int v = item.vzdialenost_k_mestu + item.poz.get(bfsdata);
-                    if (v < vzdial) {
-                        vzdial = v;
-                        target_item = item;
-                    }
-                }
-
-                if (vzdial < 100000) data.push_back(make_pair(quest, target_item));
+                Quest_spec target_item = getBestItem(quest);
+                if (target_item.item_owner != -1) data.push_back(make_pair(quest, target_item));
             }
 
             for (auto x: data){
