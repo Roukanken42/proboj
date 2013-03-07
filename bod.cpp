@@ -55,7 +55,7 @@ Quest_spec::Quest_spec(int a, Bod b, int c){
 }
 
 Quest_spec::Quest_spec (){
-    this->item_owner=(0);
-    this->poz=(0);
-    this->vzdialenost_k_mestu=(0);
+    this->item_owner=(-1);
+    this->poz=(-1,-1);
+    this->vzdialenost_k_mestu=(100000);
 }
