@@ -138,7 +138,7 @@ vector<Quest_spec> get_Quest_spec(Quest q){
     bool found = false;
     for(auto na_zemi: stav.predmety){
         if( na_zemi.typ == q.ziadanyPredmet){
-                pole.push_back(0, Bod(), Bod(na_zemi).get(vzdialenostOdMiest[vratCislomesta(Bod(q.cielX, q.cielY))]) );
+                pole.push_back( Quest_spec(0, Bod(), Bod(na_zemi).get(vzdialenostOdMiest[vratCislomesta(Bod(q.cielX, q.cielY))])) );
         }
 
     }
