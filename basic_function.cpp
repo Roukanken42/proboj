@@ -24,6 +24,9 @@ Zivocich findLifeByID(int ID);
 int vratCislomesta(Bod m);
 vector<Quest_spec> get_Quest_spec(Quest);
 bool QuestExist(Quest);
+int vebovanie(int typ=HRDINA_LUMP);
+int countHeroes (int hrac=ja, int typ=-1);
+
 
 template <class T> int find_item_by_x_y (vector<T > &data, Bod b);
 
@@ -33,9 +36,6 @@ vector<vector<int>>& bfsmem (Bod a){
     bfs(bfsdatamem[a.x][a.y], a);
     return a.get(bfsdatamem);
 }
-
-
-
 
 void bfs(vector<vector<int> > &nazov, Bod bod) {
 
@@ -177,6 +177,56 @@ bool QuestExist(Quest q){
 
     return found;
 
+}
+
+int verbovanie(int typ){
+
+    for (auto ponuka: stav.pracovnePonuky){
+        if (ponuka.ktorehoHraca != ja || ponuka.typ != typ) continue;
+        bool collision = false;
+        for (auto life : stav.zivocichy){
+            if (Bod(life) == Bod(ponuka)) collision = true;
+        }
+
+        if (! collision) verbujem = true;
+    }
+
+
+    if ((countHeroes() < 2) && (verbujem == false)) {
+        int r = rand() % mesta.size();
+        if (vykonaj(Prikaz::verbuj(typ, mesta[r].x, mesta[r].y))) {
+            return 1;
+        }
+    }
+
+
+    if (countHeroes() == 2) return=0;
+    else return 2;
+
+}
+
+
+int countHeroes (int hrac, int typ) {
+
+    if(typ== -1){
+
+        int mojiSpehovia = 0;
+        for (auto it: stav.zivocichy) {
+            if (it.ktorehoHraca == ja ) mojiSpehovia++;
+        }
+
+        return mojiSpehovia;
+        }
+    else{
+
+
+        int mojiBojovnici = 0;
+        for (auto it: stav.zivocichy) {
+            if (it.ktorehoHraca == hrac && it.typ == typ) mojiBojovnici++;
+        }
+
+        return mojiBojovnici;
+        }
 }
 
 
